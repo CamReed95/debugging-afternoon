@@ -16,7 +16,7 @@ class App extends Component {
     this.navigate = this.navigate.bind(this);
   }
   componentDidMount() {
-    axios
+    axios  
       .get("https://practiceapi.devmountain.com/products/")
       .then(response => {
         this.setState({
@@ -24,6 +24,8 @@ class App extends Component {
         });
       });
   }
+// Riley's answer: if this.props.addTocart is not a func, see where you're passing it down. in the storefront component look at it's parent and what props are being pass down to its component. Also in sotrefront define props either in the constructor or if you make it into a functionl component in needs to take in storefront. You need to define props in a structire 
+
   addToCart(item) {
     this.setState({
       cart: [...this.state.cart, item]
@@ -54,7 +56,7 @@ class App extends Component {
         <NavBar navigate={this.navigate} />
         <div className="main-container">
           {showCart ? (
-            <ShoppingCart cart={cart} />
+            <ShoppingCart cart={this.state.cart} />
           ) : (
             <StoreFront products={products} />
           )}
