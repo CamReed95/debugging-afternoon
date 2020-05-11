@@ -3,14 +3,14 @@ import './StoreFront.css';
 
 class StoreFront extends Component {
   render() {
-    let productDisplay = this.props.products.map((element, index) => {
+    let productDisplay = this.props.products.map((elemnt, index) => {
       return (
         <div className="product-container" key={index}>
-          <h2>{element.title}</h2>
-          <img src={element.image} alt="" />
-          <h2>{element.desc}</h2>
-          <h3>{"$" + element.price + ".00"}</h3>
-          <button onClick={() => this.props.addToCart(element)}>Purchase!</button>
+          <h2>{elemnt.title}</h2>
+          <img src={elemnt.image} alt="" />
+          <h2>{elemnt.desc}</h2>
+          <h3>{"$" + elemnt.price + ".00"}</h3>
+          <button onClick={() => this.props.addToCart(elemnt)}>Purchase!</button>
         </div>
       )
     })
@@ -22,4 +22,4 @@ class StoreFront extends Component {
   }
 }
 
-export default StoreFront;
+export default StoreFront; 
